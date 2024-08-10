@@ -1,7 +1,21 @@
 fn main() {
-    let condition = true;
+    let mut count = 0;
+    'counting_up: loop {
+        println!("count = {count}");
+        let mut remaining = 10;
 
-    let number = if condition { 5 } else { "six" };
+        loop {
+            println!("remaining = {remaining}");
+            if remaining == 9 {
+                break;
+            }
+            if count == 2 {
+                break 'counting_up;
+            }
+            remaining -= 1;
+        }
 
-    println!("The value of number is: {number}");
+        count += 1;
+    }
+    println!("End count = {count}");
 }
